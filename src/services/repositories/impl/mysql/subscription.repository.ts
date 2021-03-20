@@ -1,4 +1,4 @@
-import connector from '../../../../common/persistence/mysql.persistence'
+import connector from '../../../../common/persistence/mysql.persistence';
 import { Subscription } from '../../domain/subscription';
 import { SubscriptionRepository } from '../../subscription.repository';
 
@@ -42,7 +42,6 @@ export class SubscriptionMySQLRepository implements SubscriptionRepository {
             'VALUES(?, ?, ?, ?, ?)',
             [entry.user_id, entry.code, entry.amount, entry.cron, now]
         )
-
     }
 
     public async update(entry: Subscription): Promise<void> {

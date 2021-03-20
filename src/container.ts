@@ -1,12 +1,12 @@
 import express from 'express';
 import { createContainer, asClass } from 'awilix';
-import { scopePerRequest } from 'awilix-express'
+import { scopePerRequest } from 'awilix-express';
 import { TestService } from './services/test.service';
 import { SubscriptionMySQLRepository } from './services/repositories/impl/mysql/subscription.repository';
 import { SubscriptionService } from './services/subscription.service';
 
 
-export default (app: express.Application) => {
+export default (app: express.Application): void => {
 
     const container = createContainer({
         injectionMode: 'CLASSIC' // injection from constructor
