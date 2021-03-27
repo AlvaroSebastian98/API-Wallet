@@ -18,10 +18,12 @@
     "awilix-express": "^4.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "mssql": "^6.3.1",
     "mysql2": "^2.1.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.11",
+    "@types/mssql": "^6.0.7",
     "@typescript-eslint/eslint-plugin": "^4.17.0",
     "@typescript-eslint/parser": "^4.17.0",
     "eslint": "^7.22.0",
