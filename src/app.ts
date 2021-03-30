@@ -13,8 +13,12 @@ import express from 'express';
 import loadContainer from './container';
 import { loadControllers } from 'awilix-express';
 import jwt from 'express-jwt';
+import cors from 'cors';
 
 const app: express.Application = express();
+
+// CORS
+app.use(cors());
 
 // JSON Middleware
 app.use(express.json());
@@ -32,7 +36,8 @@ if (process.env.JWT_SECRET_KEY) {
 }
 
 // Controllers: define controllers path
-app.use(loadControllers('controllers/*.ts', {
+app.use(loadControllers(`controllers/*.${process.env.NODE_ENV === 'production' ?
+                        'js' : 'ts'}`, {
     cwd: __dirname
 }));
 
