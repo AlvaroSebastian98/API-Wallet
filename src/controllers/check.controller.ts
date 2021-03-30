@@ -23,4 +23,10 @@ export class CheckController {
         )
     }
 
+    @route('/user-payload')
+    @GET()
+    public userPayload(req: Request, res: Response): void {
+        res.json(req.user);
+    }
+
 }

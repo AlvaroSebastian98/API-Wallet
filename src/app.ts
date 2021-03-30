@@ -12,6 +12,7 @@ console.log(process.env.APP_FOO);
 import express from 'express';
 import loadContainer from './container';
 import { loadControllers } from 'awilix-express';
+import jwt from 'express-jwt';
 
 const app: express.Application = express();
 
@@ -21,6 +22,14 @@ app.use(express.urlencoded({ extended: false }));
 
 // Container
 loadContainer(app);
+
+// JWT Middleware
+if (process.env.JWT_SECRET_KEY) {
+    app.use(jwt({
+        secret: process.env.JWT_SECRET_KEY,
+        algorithms: ['HS256']
+    }).unless({path: ['/', '/check']}));
+}
 
 // Controllers: define controllers path
 app.use(loadControllers('controllers/*.ts', {
