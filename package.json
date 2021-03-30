@@ -9,7 +9,8 @@
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "lint": "eslint src/*.ts --fix",
     "build": "tsc",
-    "start": "tsc && node build/server.js"
+    "start": "node build/server.js",
+    "postinstall": "npm run build"
   },
   "author": "alvaro",
   "license": "ISC",
