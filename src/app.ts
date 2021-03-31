@@ -16,7 +16,7 @@ import jwt from 'express-jwt';
 import cors from 'cors';
 
 const app: express.Application = express();
-const extension = process.env.NODE_ENV === 'production' ? 'js' : 'ts';
+const extension: string = process.env.NODE_ENV === 'production' ? 'js' : 'ts';
 
 // CORS
 app.use(cors());
